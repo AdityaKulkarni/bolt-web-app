@@ -1,7 +1,7 @@
 // API Configuration
 export const API_BASE_URL = import.meta.env.PROD 
   ? '/api'  // Use Netlify Functions proxy in production
-  : 'http://localhost:3000';  // Use direct API in development
+  : 'http://ec2-18-144-65-149.us-west-1.compute.amazonaws.com:3000';  // Use direct API in development
 
 // API Endpoints
 export const API_ENDPOINTS = {
