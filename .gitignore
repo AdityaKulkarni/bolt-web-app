@@ -38,6 +38,9 @@ node_modules/
 # Build output
 dist/
 
+# Netlify Functions build output
+netlify/functions/dist/
+
 # Vite cache
 .vite/
 
