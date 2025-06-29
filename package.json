@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && npm run build:functions",
-    "build:functions": "tsc --project netlify/functions/tsconfig.json",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
