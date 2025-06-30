@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
-import { registerUser, UserRegistrationRequest } from '../api';
+import { registerUser, UserProfile, UserRegistrationRequest } from '../api';
+import { storage, StoredUser } from '../utils/storage';
 
 const SignUpScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -9,9 +10,9 @@ const SignUpScreen: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [gender, setGender] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [gender, setGender] = useState('male');
+  const [dateOfBirth, setDateOfBirth] = useState('1997-01-01');
+  const [phoneNumber, setPhoneNumber] = useState('+16694657373');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -36,13 +37,6 @@ const SignUpScreen: React.FC = () => {
       return;
     }
 
-    // Validate international phone number format
-    const phoneRegex = /^\+[1-9]\d{1,14}$/;
-    if (!phoneRegex.test(phoneNumber.replace(/\s/g, ''))) {
-      setError('Please enter a valid international phone number (e.g., +1234567890)');
-      return;
-    }
-
     // Validate date of birth (must be at least 13 years old)
     const today = new Date();
     const birthDate = new Date(dateOfBirth);
@@ -51,12 +45,6 @@ const SignUpScreen: React.FC = () => {
     
     if (age < 13 || (age === 13 && monthDiff < 0) || (age === 13 && monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       setError('You must be at least 13 years old to sign up');
-      return;
-    }
-
-    // Validate gender (only male/female allowed for API)
-    if (gender !== 'male' && gender !== 'female') {
-      setError('Please select either Male or Female');
       return;
     }
 
@@ -75,8 +63,8 @@ const SignUpScreen: React.FC = () => {
       const result = await registerUser(requestBody);
 
       if (result.success) {
-        // Signup successful, redirect to login
-        navigate('/login');
+        storage.setUser((result.data as any).user as unknown as StoredUser);
+        navigate('/dashboard');
       } else {
         setError(result.error || 'Signup failed. Please try again.');
       }
@@ -133,7 +121,7 @@ const SignUpScreen: React.FC = () => {
               />
             </div>
 
-            <div>
+            {/* <div>
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
@@ -144,9 +132,9 @@ const SignUpScreen: React.FC = () => {
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <input
                 type="date"
                 placeholder="Date of Birth"
@@ -156,9 +144,9 @@ const SignUpScreen: React.FC = () => {
                 disabled={isLoading}
                 max={new Date().toISOString().split('T')[0]}
               />
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <input
                 type="tel"
                 placeholder="Phone Number (e.g., +1234567890)"
@@ -167,7 +155,7 @@ const SignUpScreen: React.FC = () => {
                 className="w-full px-4 py-4 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 disabled={isLoading}
               />
-            </div>
+            </div> */}
 
             <div className="relative">
               <input
