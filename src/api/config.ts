@@ -1,5 +1,5 @@
 // API Configuration
-export const API_BASE_URL = 'http://ec2-18-144-65-149.us-west-1.compute.amazonaws.com:3000';
+export const API_BASE_URL = 'https://bolt-hackathon-backend-adityakulkarnis-projects.vercel.app/';
 
 // API Endpoints
 export const API_ENDPOINTS = {
