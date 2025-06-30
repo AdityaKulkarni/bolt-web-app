@@ -97,7 +97,7 @@ const ProfilePage: React.FC = () => {
               />
             </a>
           </div>
-          <p className="text-xs text-gray-500">memorie.io v1.0.0</p>
+          <p className="text-xs text-gray-500">memorie.site v1.0.0</p>
           <p className="text-xs text-gray-500">Made with ❤️ by Bolt.AI</p>
           </div>
         </div>
