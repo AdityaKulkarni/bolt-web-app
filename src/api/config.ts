@@ -1,5 +1,5 @@
 // API Configuration
-export const API_BASE_URL = 'https://bolt-hackathon-backend-adityakulkarnis-projects.vercel.app/';
+export const API_BASE_URL = 'https://bolt-hackathon-backend-adityakulkarnis-projects.vercel.app';
 
 // API Endpoints
 export const API_ENDPOINTS = {
