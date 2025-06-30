@@ -3,31 +3,18 @@ import {  Settings } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import BottomNavigation from './BottomNavigation';
+import { storage } from '../utils/storage';
 
 const EditProfilePage: React.FC = () => {
-  const { user, updateProfile } = useAuth();
+  const user = storage.getUser();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: user?.name || '',
-    email: user?.email || '',
-    phone: '+1 (123) 456 7890',
-    password: '••••••••',
-    age: '72',
-    gender: 'Male'
-  });
+  const [formData, setFormData] = useState({...user});
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   const handleSave = () => {
-    // Update user profile
-    if (updateProfile) {
-      updateProfile({
-        name: formData.name,
-        email: formData.email
-      });
-    }
     navigate('/profile');
   };
 
@@ -76,7 +63,7 @@ const EditProfilePage: React.FC = () => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Phone
             </label>
@@ -86,7 +73,7 @@ const EditProfilePage: React.FC = () => {
               onChange={(e) => handleInputChange('phone', e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
-          </div>
+          </div> */}
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -100,19 +87,7 @@ const EditProfilePage: React.FC = () => {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Phone
-            </label>
-            <input
-              type="tel"
-              value={formData.phone}
-              onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 gap-4">
+          {/* <div className="grid grid-cols-1 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Gender
@@ -127,7 +102,7 @@ const EditProfilePage: React.FC = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Action Buttons */}

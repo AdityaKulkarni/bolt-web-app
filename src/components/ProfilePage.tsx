@@ -15,7 +15,7 @@ const ProfilePage: React.FC = () => {
 
   const menuItems = [
     { icon: Edit3, label: 'Edit Profile', action: () => navigate('/edit-profile') },
-    { icon: Settings, label: 'Settings', action: () => navigate('/settings') },
+    // { icon: Settings, label: 'Settings', action: () => navigate('/settings') },
     { icon: Shield, label: 'Privacy & Security', action: () => {} },
     { icon: HelpCircle, label: 'Help & Support', action: () => {} },
     { icon: LogOut, label: 'Log Out', action: handleLogout, danger: true }

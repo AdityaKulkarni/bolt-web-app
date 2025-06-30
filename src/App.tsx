@@ -67,11 +67,11 @@ const App: React.FC = () => {
                     <EditProfilePage />
                   </ProtectedRoute>
                 } />
-                <Route path="/settings" element={
+                {/* <Route path="/settings" element={
                   <ProtectedRoute>
                     <SettingsPage />
                   </ProtectedRoute>
-                } />
+                } /> */}
                 <Route path="/insights" element={
                   <ProtectedRoute>
                     <InsightsPage />
