@@ -44,11 +44,13 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
-              <img
-                src="/bolt_logo.png"
-                alt="Company Logo"
-                className="w-12 h-12 object-contain"
-              />
+              <a href="https://bolt.new" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/bolt_logo.png"
+                  alt="Company Logo"
+                  className="w-12 h-12 object-contain"
+                  />
+              </a>
             </div>
           </div>
 

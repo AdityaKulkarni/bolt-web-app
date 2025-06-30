@@ -64,11 +64,13 @@ const WelcomeScreen: React.FC = () => {
         {/* Company Badge */}
         <div className="mb-16">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-            <img
-              src="/bolt_logo.png"
-              alt="Company Logo"
-              className="w-16 h-16 object-contain"
-            />
+            <a href="https://bolt.new" target="_blank" rel="noopener noreferrer">
+              <img
+                src="/bolt_logo.png"
+                alt="Company Logo"
+                className="w-16 h-16 object-contain"
+                />
+            </a>
           </div>
         </div>
 
