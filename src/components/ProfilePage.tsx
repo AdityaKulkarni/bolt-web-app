@@ -10,6 +10,7 @@ const ProfilePage: React.FC = () => {
 
   const handleLogout = () => {
     storage.removeUser();
+    storage.clearAll();
     navigate('/');
   };
 
